@@ -1,35 +1,36 @@
+ 
+ 
+ function openGift() {
+    document.getElementById("gift-box").style.display = "none";//remove o gift
 
-function createFlower() {
-    const flower = document.createElement('img');
-    flower.src = 'flor.webp';
-    flower.className = 'flower';
-    flower.style.left = Math.random() * 100 + 'vw';
-    flower.style.animationDuration = Math.random() * 3 + 2 + 's';
-    flower.style.animationDelay = Math.random() * 3 + 's'; // Atraso aleatório
-    document.querySelector('.falling-flowers').appendChild(flower);
-    
-    flower.addEventListener('animationend', () => {
-        flower.remove();
-    });
+    const audio = document.getElementById("bg-music");//tocar musica
+    audio.play();
+
+    document.getElementById("slideshow").style.display = "block";
+    startSlideshow();
+
+    // Adicionar efeito de flores caindo
+    startFallingFlowers();
 }
-setInterval(createFlower, 300);
 
+// Função para alternar slides
+let currentSlide = 0;
+function startSlideshow() {
+    const slides = document.querySelectorAll(".slide");
+    setInterval(() => {
+        slides[currentSlide].style.opacity = 0;
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].style.opacity = 1;
+    }, 3000); // Troca de imagem a cada 3 segundos
+}
 
-let slideIndex = 0;
-const slides = document.getElementsByClassName('slides');
-const totalSlides = slides.length;
-
-function showSlides() {
-    for (let i = 0; i < totalSlides; i++) {
-        slides[i].classList.remove('active');
+// Função para adicionar flores caindo
+function startFallingFlowers() {
+    for (let i = 0; i < 30; i++) { // 30 flores
+        const flower = document.createElement("div");
+        flower.classList.add("flower");
+        flower.style.left = `${Math.random() * 100}vw`;
+        flower.style.animationDuration = `${3 + Math.random() * 5}s`;
+        document.body.appendChild(flower);
     }
-    slideIndex++;
-    if (slideIndex >= totalSlides) { slideIndex = 0; }
-    slides[slideIndex].classList.add('active');
-    setTimeout(showSlides, 2000);
 }
-
-
-showSlides();
-
-

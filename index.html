@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surpresa Romântica</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
-    <div id="gift-box" onclick="openGift()">
-        <h1 style="color: white;">Clique para abrir o presente</h1>
+    <div id="root">
+        <div class="title">Algo inesperado está aqui...</div>
+        <div class="slidesShow">
+            <img src="carta.png" alt="carta" class="slades active" onclick={openLetter()}>
+            <img src="img1.jpg" alt="foto 1" class="slades">
+            <img src="img2.jpg" alt="foto 2" class="slades">
+            <img src="img3.jpg" alt="foto 3" class="slades">
+            <img src="img4.jpg" alt="foto 4" class="slades">
+        </div>
+        <div class="subtitle">Clique para abrir e descubra! ❤️</div>
     </div>
-
-   
-    <div id="slideshow">
-        <img src="img1.jpg" class="slide" style="opacity: 1;">
-        <img src="img2.jpg" class="slide">
-        <img src="img3.jpg" class="slide">
-        <img src="img4.jpg" class="slide">
-    </div>
-
-    <audio id="bg-music" loop preload="auto">
+    <audio autoplay loop>
         <source src="married_life.ogg" type="audio/ogg">
-        Seu navegador não suporta o elemento de áudio.
     </audio>
-
-   <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

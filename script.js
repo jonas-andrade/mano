@@ -1,36 +1,41 @@
- 
- 
- function openGift() {
-    document.getElementById("gift-box").style.display = "none";//remove o gift
 
-    const audio = document.getElementById("bg-music");//tocar musica
-    audio.play();
-
-    document.getElementById("slideshow").style.display = "block";
-    startSlideshow();
-
-    // Adicionar efeito de flores caindo
-    startFallingFlowers();
-}
-
-// Função para alternar slides
-let currentSlide = 0;
-function startSlideshow() {
-    const slides = document.querySelectorAll(".slide");
+const slideplay = ()=> {
+    let currentSlide = 0;
     setInterval(() => {
-        slides[currentSlide].style.opacity = 0;
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].style.opacity = 1;
-    }, 3000); // Troca de imagem a cada 3 segundos
+        const slides = document.querySelectorAll('.slades');
+        
+        slides[currentSlide].classList.remove('active'); 
+        currentSlide = (currentSlide + 1) % slides.length; 
+        slides[currentSlide].classList.add('active');
+    }, 2000); 
+    
 }
 
-// Função para adicionar flores caindo
-function startFallingFlowers() {
-    for (let i = 0; i < 30; i++) { // 30 flores
-        const flower = document.createElement("div");
+function openLetter(){
+   
+    document.querySelector('.subtitle').innerText = "Nosso amor é como uma canção que ecoa em nossos corações, cheia de momentos únicos que nos fazem vibrar.";
+    const letter = document.querySelectorAll('.slades')[0];
+    letter.style.display='none'
+    letter.classList.remove('slades');
+    slideplay();
+    document.querySelector('audio').play();
+    fallingFlowers();
+    const title = document.querySelector('.title');
+   
+    setTimeout(() => {
+        title.innerText = "Eu te Amo!";
+        title.classList.add('fade-in');
+        
+    }, 5000); 
+}
+
+const fallingFlowers = ()=> {
+    for (let i = 0;i<30; i++){
+        const flower = document.createElement('div');
         flower.classList.add("flower");
         flower.style.left = `${Math.random() * 100}vw`;
         flower.style.animationDuration = `${3 + Math.random() * 5}s`;
         document.body.appendChild(flower);
+
     }
 }

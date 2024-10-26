@@ -79,7 +79,7 @@ img[alt="carta"]:hover{
     position: absolute;
     width: 40px;
     height: 40px;
-    background: url('assets/flor.webp') no-repeat center;
+    background: url("../assets/flor.webp") no-repeat center;
     background-size: contain;
     animation: fall 5s infinite linear;
     

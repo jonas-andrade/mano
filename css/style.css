@@ -4,28 +4,29 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: black;
-
 }
+
 #root {
     width: 80%;
     max-width: 1200px;
     min-height: 90vh;
     margin: 0 auto;
     padding: 20px;
-    background: linear-gradient(to right, #ffafbd , #ffc3a0);
+    background: linear-gradient(to right, #ffafbd, #ffc3a0);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     box-sizing: border-box;
     text-align: center;
 }
+
 .title {
     font-size: 2rem;
     color: #b32d6c;
     font-weight: bold;
     animation: fadeIn 1.5s ease-in-out forwards;
     opacity: 0;
-
 }
+
 .title.fade-in {
     opacity: 1;
 }
@@ -44,7 +45,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* position: relative; */
     overflow: hidden;
     height: 400px;
     width: 100%;
@@ -58,21 +58,22 @@ body {
     border-radius: 8px;
     box-shadow: -10px 10px 5px rgba(0, 0, 0, 0.5);
     transition: opacity 1s ease;
-   
 }
+
 .slades.active {
     opacity: 1;
     z-index: 1;
 }
-img[alt="carta"]{
+
+img[alt="carta"] {
     cursor: pointer;
     transition: transform 0.7s ease;
     animation: heartBeat 1s infinite ease-in-out;
     transform-origin: center;
 }
-img[alt="carta"]:hover{
-    transform: scale(1.1);
-    transform: rotate(-3deg);
+
+img[alt="carta"]:hover {
+    transform: scale(1.1) rotate(-3deg);
 }
 
 .flower {
@@ -82,31 +83,99 @@ img[alt="carta"]:hover{
     background: url("../assets/flor.webp") no-repeat center;
     background-size: contain;
     animation: fall 5s infinite linear;
-    
 }
+
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fall {
-    0%{
-        transform: translateY(-100vh) rotate(0deg);
-       
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    100%{
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
         transform: translateY(100vh) rotate(360deg);
     }
 }
+
 @keyframes heartBeat {
-    0%, 100% {
-        transform: scale(1); 
+    0%,
+    100% {
+        transform: scale(1);
     }
     50% {
         transform: scale(1.05);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #root {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .slidesShow {
+        height: 300px; /* Reduz a altura para dispositivos menores */
+    }
+
+    .slades {
+        max-width: 80%; /* Aumenta a largura máxima das imagens para dispositivos menores */
+    }
+
+    img[alt="carta"] {
+        width: 80%; /* Ajusta a largura da imagem */
+    }
+}
+
+@media (max-width: 480px) {
+    #root {
+        padding: 5px; /* Reduz o padding em dispositivos menores */
+    }
+
+    .title {
+        font-size: 1.2rem; /* Diminui ainda mais o tamanho do título */
+    }
+
+    .subtitle {
+        font-size: 0.9rem; /* Diminui o tamanho do subtítulo */
+    }
+
+    .slidesShow {
+        height: 250px; /* Ajusta ainda mais a altura para smartphones */
+    }
+
+    .slades {
+        max-width: 90%; /* Ajusta a largura máxima para uma tela ainda menor */
+    }
+
+    img[alt="carta"] {
+        width: 90%; /* Ajusta a largura da imagem para smartphones */
     }
 }

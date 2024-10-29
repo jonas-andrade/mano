@@ -4,19 +4,22 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: black;
+    overflow: hidden;
 }
 
 #root {
     width: 80%;
-    max-width: 1200px;
-    min-height: 90vh;
-    margin: 0 auto;
+    height: 90%;
+    margin: 1% auto;
     padding: 20px;
     background: linear-gradient(to right, #ffafbd, #ffc3a0);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     box-sizing: border-box;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
 }
 
 .title {
@@ -48,6 +51,7 @@ body {
     overflow: hidden;
     height: 400px;
     width: 100%;
+    position: relative; /* Posicionamento relativo */
 }
 
 .slades {
@@ -82,7 +86,15 @@ img[alt="carta"]:hover {
     height: 40px;
     background: url("../assets/flor.webp") no-repeat center;
     background-size: contain;
-    animation: fall 5s infinite linear;
+    animation: fall 2s linear forwards;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.flower.fallen {
+    animation: none;
+    bottom: 0;
+    transform: translateY(calc(var(--stack-index) * 10px));
 }
 
 @keyframes fadeIn {
@@ -112,7 +124,7 @@ img[alt="carta"]:hover {
         transform: translateY(-100vh) rotate(0deg);
     }
     100% {
-        transform: translateY(100vh) rotate(360deg);
+        transform: translateY(0) rotate(360deg); /* Para parar no chão do contêiner */
     }
 }
 
@@ -142,40 +154,40 @@ img[alt="carta"]:hover {
     }
 
     .slidesShow {
-        height: 300px; /* Reduz a altura para dispositivos menores */
+        height: 300px; 
     }
 
     .slades {
-        max-width: 80%; /* Aumenta a largura máxima das imagens para dispositivos menores */
+        max-width: 80%;
     }
 
     img[alt="carta"] {
-        width: 80%; /* Ajusta a largura da imagem */
+        width: 80%;
     }
 }
 
 @media (max-width: 480px) {
     #root {
-        padding: 5px; /* Reduz o padding em dispositivos menores */
+        padding: 5px;
     }
 
     .title {
-        font-size: 1.2rem; /* Diminui ainda mais o tamanho do título */
+        font-size: 1.2rem;
     }
 
     .subtitle {
-        font-size: 0.9rem; /* Diminui o tamanho do subtítulo */
+        font-size: 0.9rem;
     }
 
     .slidesShow {
-        height: 250px; /* Ajusta ainda mais a altura para smartphones */
+        height: 250px;
     }
 
     .slades {
-        max-width: 90%; /* Ajusta a largura máxima para uma tela ainda menor */
+        max-width: 90%;
     }
 
     img[alt="carta"] {
-        width: 90%; /* Ajusta a largura da imagem para smartphones */
+        width: 90%;
     }
 }

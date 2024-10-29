@@ -9,7 +9,7 @@ body {
 
 #root {
     width: 80%;
-    height: 90%;
+    min-height: 90vh;
     margin: 1% auto;
     padding: 20px;
     background: linear-gradient(to right, #ffafbd, #ffc3a0);
